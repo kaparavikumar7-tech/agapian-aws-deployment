@@ -63,3 +63,62 @@ HTTPS traffic is handled through port 443, while HTTP traffic on port 80 is redi
 Successfully deployed and accessible through HTTPS.
 
 **Note:** This is a personal deployment project for AGAPIAN Technologies.
+
+
+
+## Architecture Diagram
+
+```text
+                  Website Visitor
+                         |
+                         v
+                  Custom Domain
+                   agapian.in
+                         |
+                         v
+                 Amazon Route 53
+                    DNS Records
+                         |
+                         v
+                  AWS EC2 Instance
+                  Amazon Linux 2023
+                         |
+                         v
+                       Nginx
+                    Web Server
+                         |
+                         v
+                 AGAPIAN Website
+```
+
+### HTTPS Configuration
+
+- HTTPS traffic is handled through port 443.
+- HTTP traffic through port 80 is redirected to HTTPS.
+- Let's Encrypt provides the SSL/TLS certificate.
+- Certbot manages certificate installation and renewal.
+
+## Important Commands Used
+
+| Purpose | Command |
+|---|---|
+| Check Nginx status | `sudo systemctl status nginx` |
+| Test Nginx configuration | `sudo nginx -t` |
+| Reload Nginx | `sudo systemctl reload nginx` |
+| Check HTTP response | `curl -I http://agapian.in` |
+| Check HTTPS response | `curl -I https://agapian.in` |
+| Check certificate | `sudo certbot certificates` |
+| Test certificate renewal | `sudo certbot renew --dry-run` |
+
+## Troubleshooting
+
+### Issue: Certbot could not find a matching Nginx server block
+
+**Cause:** The Nginx configuration initially used `server_name _;` instead of the actual domain names.
+
+**Solution:** Updated the Nginx server configuration to include:
+
+`server_name agapian.in www.agapian.in;`
+
+**Verification:** Successfully installed the existing certificate using Certbot and reloaded Nginx.
+
