@@ -122,3 +122,20 @@ Successfully deployed and accessible through HTTPS.
 
 **Verification:** Successfully installed the existing certificate using Certbot and reloaded Nginx.
 
+## Deployment Screenshots
+
+### EC2 Instance
+![EC2 Instance](screenshots/ec2-instance.png)
+
+### Route 53 DNS
+![Route 53](screenshots/route53-dns.png)
+
+### Nginx Status
+![Nginx](screenshots/nginx-status.png)
+
+### HTTPS Website
+![HTTPS](screenshots/https-website.png)
+
+### SSL Renewal
+![SSL Renewal](screenshots/ssl-renewal.png)
+
