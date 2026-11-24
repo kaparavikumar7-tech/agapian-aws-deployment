@@ -68,28 +68,25 @@ Successfully deployed and accessible through HTTPS.
 
 ## Architecture Diagram
 
+## Architecture Diagram
+
 ```text
-                  Website Visitor
-                         |
-                         v
-                  Custom Domain
-                   agapian.in
-                         |
-                         v
-                 Amazon Route 53
-                    DNS Records
-                         |
-                         v
-                  AWS EC2 Instance
-                  Amazon Linux 2023
-                         |
-                         v
-                       Nginx
-                    Web Server
-                         |
-                         v
-                 AGAPIAN Website
-```
+Website Visitor
+      |
+      v
+agapian.in
+      |
+      v
+Amazon Route 53
+      |
+      v
+AWS EC2 (Amazon Linux 2023)
+      |
+      v
+Nginx Web Server
+      |
+      v
+AGAPIAN Website
 
 ### HTTPS Configuration
 
